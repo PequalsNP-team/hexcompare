@@ -1,0 +1,75 @@
+
+                  HEXCOMPARE - Visual File Comparison Utility
+                  http://sourceforge.net/projects/hexcompare/
+
+
+DESCRIPTION:
+------------
+  hexcompare is a tool used to compare two binary or ASCII files. In overview
+mode, it presents a block diagram which quickly displays what's the
+same/different between two sets of files.
+
+
+LICENSE:
+--------
+  hexcompare is released under the GNU GPLv3.
+
+
+HOW TO COMPILE:
+---------------
+  Enter the "make" command in your terminal, minus the quote. It will produce
+an executable called "hexcompare". This is our program.
+
+
+HOW TO INTERPRET:
+-----------------
+  Start the program by using the files you want to compare as the arguments.
+For instance:
+
+   ./hexcompare file_one file_two
+
+  Once in the program has started, you will see that the screen is divided
+into two. In the top portion, you have the "overview." This is a block diagram
+representing the differences between both files at a given offset.
+
+  A blue block means that the bytes that it represents are the same between
+both files. Red means that they're different. Grey means that neither file has
+any data at an offset.
+
+  Each block represents a number of bytes. How many bytes are represented
+depends on your terminal window size: the bigger it is, the more blocks that
+can be fit on screen. The more blocks on screen, the more the files are
+divided up into smaller chunks of bytes.
+
+  The bottom half of the screen contains the raw data at a specified offset.
+Using the "m" key will alternate the display between presenting the data as
+hex and as ASCII. Pressing "v" will make the data view of the lower part of
+the screen take up the whole terminal.
+
+
+HOW TO NAVIGATE:
+----------------
+  The mouse can be used to navigate the block diagram "overview." Single
+clicking on a block will load in the offset represented by that block, and
+show the data that's found there.
+
+  Double-clicking on a block will bring up a more detailed hex view of the
+specified location.
+
+  The arrow keys can be used to go from block to block in the overview. Page
+Up/Down can be used to go up/down lines of hex/ASCII data.
+
+
+CHANGELOG:
+----------
+1.0.4   Mateusz Viste contributed several patches that improve portability,
+        remove unnecessary dependencies and fix a few cosmetical issues, also
+        fixed a flicker issue reported by Rene Liebscher.
+1.0.3   Tomasz Wasilczyk contributed numerous fixes to correct eroneous
+        comparisons, compiler warnings and build issues.
+1.0.2   More efficient byte comparison scheme.
+1.0.1   Thanks to Grawity: fixed how the files were tarred together. Thanks to
+        pickledspiders: changed from -curses to -lcurses in the Makefile.
+1.0.0   Initial Release by Julien McArdle (julien.im)
+
+=========================================================

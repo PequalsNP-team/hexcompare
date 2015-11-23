@@ -1,2 +1,0 @@
-# hexcompare
-hexcompare unofficial mirror

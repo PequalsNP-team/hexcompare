@@ -1,0 +1,18 @@
+#
+# This is a Makefile for building hexcompare on DOS using DJGPP.
+#
+# Requirements:
+#  * DJGPP v2.04 or newer
+#  * the pdcurses library
+#
+
+CFLAGS = -O3 -Wall -Wextra -pedantic -Wformat-security -std=gnu89
+
+all: hexcomp.exe
+
+hexcomp.exe: main.c gui.c
+	$(CC) $(CFLAGS) -o hexcomp.exe main.c gui.c -l:pdcurses.a
+	upx -9 hexcomp.exe
+
+clean:
+	del hexcomp.exe
